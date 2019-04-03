@@ -162,6 +162,183 @@ Dicas Gerais de Javascript
  		delete pessoa.idade // Retorna true
 
  	Continuar a partir do assunto Funções //Episodio 7
+ 	Função de Primeira Classe é aquela que pode ser atribuída a uma variável,
+ 	passada como parâmetro ou ser retornada de uma outra função.
+
+	 	function soma(a,b){
+	 		returna a+b;
+	 	}; //Function Declaration
+
+	 	var soma = function(a,b){
+	 		returna a+b;
+	 	}; //Function Expression
+
+	 	var soma = function soma(a,b){
+	 		returna a+b;
+	 	}; //Function Named
+
+	 	Vamos verificar um Exemplo
+	 	-------------------------------------------------------
+	 	console.log(soma(2,2)); //4
+
+	 	function soma(a,b){
+	 		return a+b;
+	 	};
+	 	No caso acima funciona por ser uma função declaration
+	 	É carreganda antes do código ser interpretado
+	 	-------------------------------------------------------
+		console.log(soma(2,2)); //Dá erro
+
+	 	var soma = function soma(a,b){
+	 		return a+b;
+	 	};
+		No caso acima (function Expression) é carregada no momento
+		da interpretação, seguindo a ordem na sequência correta.
+		-------------------------------------------------------
+
+		Como invocar uma função
+
+		Invocando funções Escopo Global
+			nomeFuncao(2,2);
+			
+			-------------------------------------------------------
+			Lambda = passagem de função por parâmetro
+
+			Ex.
+			var produto = {nome:'Sapato', valor:150};
+			var formulaImpostoA = function(preco){return preco*0.1;}
+			var formulaImpostoB = function(preco){return preco*0.2;}
+
+			var calculaPreco = function(produto,formulaImpostoA){
+				return produto.preco+formulaImpostoA(produto.preco);
+			}
+
+			calcularPreco(produto,formulaImpostoA);//165
+			calcularPreco(produto,formulaImpostoB);//180
+			-------------------------------------------------------
+			Função retornando uma função que retorna uma String
+
+			var helloWorld = function (){
+				return function(){
+					return "Hello World!"
+				}
+			}
+
+			Para chamar console.log(helloWorld()()); //Fazer isso utilizando 
+
+		Invocando funções por Objetos
+
+			//O this se refere ao escopo do objeto 
+			//Pelo qual se passa a função
+			var pessoa = {
+				nome:"João", idade:20, getIdade:function(){
+													return this.idade;
+												}
+			}
+
+			pessoa.getIdade(); //20
+
+			-------------------------------------------------------
+			Exemplo 2
+			var getIdade = function(){return this.idade;};
+
+			var pessoa = {
+				nome:"João", 
+				idade:20, 
+				getIdade:getIdade; //Chama sem () pois é para associação
+			}
+
+			pessoa.getIdade();//20
+			-------------------------------------------------------
+
+		Invocando funções por Objetos usando call e aplly
+			Toda função possui os 2 métodos call() e apply()
+
+			getIdade.call(pessoa);//20
+			getIdade.apply(pessoa);//20 caso necessite passar mais parâmetros o do apply é um array []
+
+			Toda função tem os seus arguments acessíveis
+
+		Invocando funções por Objetos usando o operador new
+			-- Funções contrutoras x funções fábricas
+			Funções Fábricas (factories)
+
+			var criarPessoa = function(nome,idade){
+				return{
+					nome:nome,
+					idade:idade
+				}
+			}
+
+			Ex. criarPessoa("Pedro",20) // Cria Pedro
+			Ex. criarPessoa("Maria",30) // Cria Maria
+
+			Função Construtora (Por convenção o nome fica em maiúsculo)
+			var Pessoa = function (nome,idade){
+				this.nome = nome;
+				this.idade = idade;
+			}
+
+			console.log(new Pessoa("Pedro",20));
+			console.log(new Pessoa("Maria",30));
+
+			A diferença entre Função Construtora e Função Fábrica
+			Sempre olhar os pros e contras em cada uma das funções
+			a construtora é mais verbosa e mais clara, a fábrica é mais escondida. "Bom senso"
+
+		Closures(Fechamento)
+			As innerfunctions sempre mantém as referências 
+			Retorno de uma função dentro de outra
+			ex:
+
+			var helloworld=function(){
+				var message = "Hello World";
+				return functio(){
+					return message;
+				};	
+			};
+
+			helloWorld;//[Function]
+			helloWorld();//[Function]
+			helloWorld()();//Hello World
+
+		Episódio 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
