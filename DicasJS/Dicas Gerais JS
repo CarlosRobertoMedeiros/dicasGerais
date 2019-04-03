@@ -1,0 +1,187 @@
+Dicas Gerais de Javascript
+
+	- Declaração de Variáveis
+	As variáveis tem tipagem fraca, não devem declarar tipo, os nomes de variáveis podem começar com: letra,$ ou _
+	Por convenção usa-se o camelCase pois Js é case sensitive enquanto html não.
+	normalmente o $ é utilizado em frameworks para tipagem e o _ em variáveis dentro de métodos(Como se fosse um atributo privado)
+	
+	Exemplos de nomes de variáveis
+		var nome = "AgileCode";
+		var top10 = [1,2,3,4,5,6,7,8,9,10]; //array
+		var $scope = {title:"Javascript",version:"6"}; //objeto
+		var _person = "John";
+		var numberCode = 897897989; //usei o camelCase
+		var a=10,b=20,c=30; // variáveis aninhadas
+		var language;  // linguagem sem declaração vai ficar undefined
+
+	- Tipos de Dados
+	Number, String e boolean
+
+	Number: Único tipo numérico em Js
+	
+		Funções Básicas da API
+		var nota = 10;
+		nota.toExponencial(2); //100
+		nota.toFixed(2); //10.00
+		nota.toPrecision(1); //1e+1
+		nota.toString(); // "10"
+		nota.valueof(); //10
+
+		A função typeof variável, diz o tipo da variável. (10 e 10.2 são numbers)
+		Prestar a atenção com frações decimais
+			- (0.1+0.2 = 0.3000000000004);
+			- (3/0 = infinity);
+			- "agileCode"*10; //NaN(Not a Number);
+
+		Funções Básicas Math API	
+		abs 	= valor absoluto do número
+		floor 	= valor inteiro do numero
+		log 	= logaritmo natural do número (base E)
+		min 	= Retorna o menor número
+		max 	= Retorna o maior número
+		pow 	= Potência do número
+		random 	= Gera um número Randômico
+		round 	= Arredonda o númer para o inteiro mais proximo
+		sin 	= Seno do número
+		sqrt 	= Raiz quadrada do número
+		tan 	= tangente do número
+
+	String: É composta por uma sequência de 0 ou mais caracteres com as seguintes características
+	
+		- São imutáveis
+		- Podem ser declaradas em aspas simples('') ou aspas duplas("") //Em java '' é char "" em java é String
+
+		String API
+		var nome = "AgileCode";
+		nome.charAt(2); //"i"
+		nome.charCodeAt(0); // 65 //Tabela Unicode para verificar o charCode
+		nome.concat("!"); //"AgileCode!" // nome.concat(' Silva ') //AgileCode! Silva (Ideia de Nome e Sobrenome)
+		nome.indexof('e'); //4
+		nome.lastIndexOf('e') //8
+		nome.length //9
+		nome.match("Code") // Retorna um Array ["Code", index:5, input:'AgileCode',groups:undefined]
+		nome.replace('Code','!'); //"Agile!"
+		nome.search("e") //4  Retorna a posição do caractere
+		nome.split('e'); //['Agil','Cod',''];
+		nome.substring //Posição Inicial, Posição FInal -1
+		nome.toLowerCase
+		nome.toUpperCase
+		nome.trim
+		nome.valueof // [Function:vauleOF] //Retorna o valor primitivo da função
+
+		Outro exemplo de split
+		var nomes = "Pedro;Ana;Maria;Carolina";
+		nomes.split(";") // ['Pedro','Ana','Maria','Carolina'] //Monta como um array
+
+		Outro exemplo de substring
+		var nome="Pedro Silva";
+		nome.substring(0,5); //'Pedro'
+		nome.substring(5); //' Silva' //Espaço Silva Aqui conta a partir da posição 
+
+	Boolean:
+
+		var isento = true;
+		var estudante = false;
+
+		Boolean API
+		isento.toString(); //"true"
+		estudante.valueOF(); //false
+
+		Decorar que esses 6 valores sempre são avaliados como falso estando em uma posição boolean
+		Quaisquer outros valores são verdadeiros	
+		!!0         //false Negação da Negação de 0
+		!!NaN       //false Negação da Negação de NaN
+		!!""        //false Negação da Negação de String Vazia
+		!!false     //false Negação da Negação de false
+		!!null      //false Negação da Negação de null
+ 		!!undefined //false Negação da Negação de indefined
+
+ 		Exemplo
+ 		var estudante = true;
+ 		if (estudante){
+ 			console.log("Sim");
+ 		} //Funcionou pois estudante é true
+
+ 		var nota = 10;
+ 		if(nota){
+ 			console.log("Dez")
+ 		} //Nota é 10 e retorna true pois não está nas condições acima
+
+ 		var nome="Pedro";
+ 		if (nome){
+ 			console.log("Pedro")
+ 		} // nome é true pois não está nas condições de negação
+
+ 		var pessoa = {};
+ 		!!pessoa // é true
+
+ 		var carros =[]
+ 		!!carros // é true
+
+ 	Diferença entre null e undefined
+
+ 		undefined = é retornado caso uma propriedade de um determinado objeto seja consultada e não exista
+ 		Ex.
+ 		var pessoa = {};
+ 		pessoa.idade //undefined 
+
+ 		null = é a ausência do valor na propridade 
+
+ 	Object:
+ 		É uma coleção dinâmica de chaves e valores de qualquer tipo de dados
+ 		É possível adicionar ou remover propriedades a qualquer momento
+
+ 		var pessoa = new Object(); //Essa maneira será tratada mais a frente em função construtora
+ 		var pessoa = Object.create() // Vai ser conversado no assunto relacionado a herança
+
+
+ 		var pessoa={} //Criação de um objeto vazio
+
+ 		var pessoa={
+ 			nome: "João",                   //Tipo String
+ 			idade: 20,                      //Tipo Number 
+ 			telefone:null,                  //Tipo Null
+ 			endereco:{                      //Tipo Object
+ 				logradouro:"Av. Brasil",
+ 				numero:70,
+ 				bairro:"Centro"
+ 			}
+ 		};
+
+ 		Como inserir dados após a criação do objeto
+ 		pessoa.nome = "João"
+ 		pessoa["nome"] = "João" //Essa aqui é interessante caso queira pesquisar no forEach
+
+ 		pessoa.endereco.bairro = "Centro" //Da Erro temos que criar o endereço primeiro
+ 		
+ 		pessoa.endereco={};
+ 		pessoa.endereco.bairro = "Centro" ou
+ 		pessoa["endereco"]["logradouro"] = "Rua Trajano";
+
+ 		Como apagar propriedades de um objeto
+ 		delete pessoa.idade // Retorna true
+
+ 	Continuar a partir do assunto Funções //Episodio 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
