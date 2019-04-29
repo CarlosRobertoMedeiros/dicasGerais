@@ -39,7 +39,7 @@ console.log(nome.length); //9
 //match() = retorna um array informando o indice do primeiro caractere, o input e o group
 console.log(nome.match("Code")); // Retorna um Array [ 'Code', index: 5, input: 'AgileCode', groups: undefined ] 
 
-//repace() = substitui o valor que encontrar pelo proximo digitado
+//replace() = substitui o valor que encontrar pelo proximo digitado
 console.log(nome.replace('Code','!')); //"Agile!"
 
 //search() = retorna a posição do caractere
@@ -62,6 +62,7 @@ console.log(nome.valueOf()); // AgileCode //Retorna o valor primitivo da funçã
 
 //split() --Canivete suiço, apaga o caractere que existir
 //          retorna um vetor  substituindo os valores 
+//          Canivete suiço específico para String
 console.log(nome.split('e')); //['Agil','Cod',''];
 
 //Outro exemplo de split

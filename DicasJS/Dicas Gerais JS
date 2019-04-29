@@ -303,6 +303,19 @@ Dicas Gerais de Javascript
 			helloWorld()();//Hello World
 
 		Episódio 8
+			Cuidado com o escopo global
+			Como a linguagem não possui um ligador, ou linker, faz uso de um 
+			escopo global compartilhado para estabelecr os vínculos entre diferentes
+			partes de uma aplicação.
+
+			Trabalhar com encapsulamento
+				Conforme exemplo do arquivo funções parte 2
+
+		Episódio 9 - Trabalhando com Arrays
+		Episódio 10 - Expressões Regulares Começar esse vídeo
+
+
+
 
 
 

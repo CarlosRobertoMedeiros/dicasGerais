@@ -28,7 +28,7 @@ console.log(Math.log(nota)); //0.69
 //Math.min() = Retorna o menor valor na lista de números
 console.log(Math.min(0, 150, 30, 20, -8, -200));// -200
 
-//Math.min() = Retorna o maior valor na lista de números
+//Math.max() = Retorna o maior valor na lista de números
 console.log(Math.max(0, 150, 30, 20, -8, -200));// 150
 
 //Math.pow() = retorna a potência de um número
