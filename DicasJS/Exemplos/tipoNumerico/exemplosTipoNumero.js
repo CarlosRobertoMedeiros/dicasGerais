@@ -24,10 +24,16 @@ console.log(nota.toExponential(2)); //1.00e+1
 var nota = 10;
 console.log(nota.toPrecision(4));//10.00
 
-//toFixed() = Formata o numero com uma quantidade especifica de caracteres decimais
+//toFixed() = Formata o numero com uma quantidade especifica de caracteres DECIMAIS
 var nota = 10;
 console.log(nota.toFixed(2)); //10.00
 
 //valueOf() = Retorna o valor primitivo do número
 var nota = 10;
-console.log(nota.valueOf());//10
+console.log(nota.valueOf());//10 
+
+var nota = 10;
+console.log(nota.toFixed(2)); //10.00
+
+var nota = 10;
+console.log(nota.toPrecision(2)); //10

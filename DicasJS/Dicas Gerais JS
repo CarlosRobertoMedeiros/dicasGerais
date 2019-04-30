@@ -313,6 +313,16 @@ Dicas Gerais de Javascript
 
 		Episódio 9 - Trabalhando com Arrays
 		Episódio 10 - Expressões Regulares Começar esse vídeo
+			Expressões Regulares normalmente são usadas para validação de campos
+			  - Validação de Formulários
+			  - Usa-se Regex para Extração de Dados
+			  - Substituição de Caracteres em textos
+
+			  var regExp = /<expressão regular>/;
+			  var regExp = new RegExp("expressão regular");
+
+			  Continuar no vídeo a partir dos 20 minutos
+
 
 
 

@@ -63,6 +63,7 @@ console.log(nome.valueOf()); // AgileCode //Retorna o valor primitivo da funçã
 //split() --Canivete suiço, apaga o caractere que existir
 //          retorna um vetor  substituindo os valores 
 //          Canivete suiço específico para String
+// Ou seja, para o split eu sempre jogo uma String em um array
 console.log(nome.split('e')); //['Agil','Cod',''];
 
 //Outro exemplo de split

@@ -15,11 +15,11 @@
 
 //Math.abs() =  retorna o valor absoluto positivo do número
 var nota = -10.5325;
-console.log(Math.abs(nota));
+console.log(Math.abs(nota)); //10.5325
 
 //Math.floor() =  retorna o valor inteiro do número arredondando-o quando necessário
 var nota = -10.5325;
-console.log(Math.floor(nota));
+console.log(Math.floor(nota)); //-11
 
 //Math.log() =  logaritmo natural do número (base E)
 var nota = 10;
@@ -36,7 +36,7 @@ var nota = 10;
 console.log(Math.pow(nota,2)); //100
 
 //Math.random() = retorna um número aleatório entre 0 e 1
-console.log(Math.random()); //100
+console.log(Math.random()); //0.01849473922212841
 
 //Math.round = retorna o valor mais próximo possível do inteiro
 var nota = 10.33;
