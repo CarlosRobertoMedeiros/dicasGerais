@@ -1,0 +1,69 @@
+JPA2  - Java Persistence API
+   - É uma especificação para mapeamento objeto relacional ORM
+
+   Suas Implementações mais famosas são:
+   	- Hibernate
+   	- OpenJPA
+   	- EclipseLink
+   	- Batoo
+
+Arquivo Persistence.mxl
+	Dentro da Pasta META-INF do Projeto
+	- Arquivo de Configuração do JPA
+
+	<persistence-unit name="Banco_A" transaction-type="JTA">
+		<provider>org.Hibernate.ejb.HibernatePersistence</provider>
+		<class>com.jpa.model.ClassA</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver">
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:hibernate">
+			<property name="javax.persistence.jdbc.user" value="sa">
+			<property name="javax.persistence.jdbc.password" value="password">
+		</properties>
+	</persistence-unit>
+
+
+	Estratégias transacionais 
+		Você controlando a transação 
+
+		Servidor controlando a transação
+			- Servidores de Aplicação:Jboss, Glassfish
+			- Comando:Persistence.createEntityManagerFactory();
+			- EntityManager :Injeção de Dependência
+			- Utilização do EJB 
+
+
+			@Stateless
+			public class ClasseJPA(){
+				@PersistenceContext
+				private EntityManager entityManager;
+
+			}
+
+
+	FrameWork controlando a transação
+
+	Foi utilizado o Spring FrameWork (modulo Core Container)
+		- Usa a inversão de controle
+		- Usa a Injeção de Dependência
+
+	Servlet Container:Tomcat, Jetty
+
+
+	No POM.xml
+	  Foi colocado uma implementação de JPA usando o Hibernate
+	  	hibernate-core
+	  	hibernate-entitymanager  (5.2.6)
+
+	  	Para banco de daodos mysql
+	  		mysql-conector-java (5.1.5)
+
+	 src/main/resources
+	 	META-INF
+	 		persistence.xml
+
+
+https://www.youtube.com/watch?v=8nw7qeCr1MM&list=PL8iIphQOyG-DHLpEx1TPItqJamy08fs1D&index=2	 		
+Criando um Projeto SpringBoot Completo 
+Criar tudo amanhã
