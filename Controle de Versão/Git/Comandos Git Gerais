@@ -1,0 +1,12 @@
+/***************/
+     GIT
+**************/
+Rotina Git
+	git branch -a --Lista todas as branches o -a inclui o repositório remoto  
+	git fetch = Permite visualizar as branches do repositório com diferença do local
+Mudar a Branch 
+	git checkout -b <origem> <destino>
+	git checkout -b feature-centralizacao-contabil origin/feature-centralizacao-contabil
+	git checkout -- * -> Limpa os arquivos da Stash
+	git status -- Lista o status e mostra a referência de branch remota
+	git remote add [nomecurto] [url]: --Serve para escrever o apontamento para um repositório remoto
