@@ -10,3 +10,14 @@ Mudar a Branch
 	git checkout -- * -> Limpa os arquivos da Stash
 	git status -- Lista o status e mostra a referência de branch remota
 	git remote add [nomecurto] [url]: --Serve para escrever o apontamento para um repositório remoto
+		
+Trabalhando com Stash
+       git stash save  "nome"
+	git stash list
+	git stash  apply {'hash localizado do  list'nome' '}
+	git stash drop hash {'hash localizado do  list'nome' '}
+
+        git stash pop --olhar
+        git show hash -- olhar com o hash do pop
+	
+	git mergetool
